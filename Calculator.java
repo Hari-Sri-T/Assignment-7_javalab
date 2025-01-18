@@ -41,10 +41,10 @@ class Calculator{
 		}
 		else{
 			double div = (double)numbers[0] / numbers[1];
-			return div;
+			return div; //Returns the division of 2 numbers
 		}
 		
-		return 0; //Returns the division of 2 numbers
+		return 0; 
 	}
 	
 	

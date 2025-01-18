@@ -2,57 +2,62 @@
 // Name: Tanniru Hari Sri Shanmukha Sai
 // PRN: 23070126135
 // Batch: B3
+
 import java.util.Scanner;
 
 class Main{
 	public static void main(String args[]){
-		Scanner scan = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in); //Scanner object to read option from the user
 		
 		
-		System.out.println("Select what to do \n1)Calculator \n2)Fibonnaci");
-		int option = scan.nextInt();
+		System.out.println("\nSelect what to do \n1)Calculator \n2)Fibonnaci");
+		int option = scan.nextInt(); //taking user input , either 1 or 2 is expected
 		
-		switch(option){
+		//based on option chosen either Calculator or Fibonnaci is run using switch
+		switch(option){ 
 		
-			case 1:
+			case 1: //Calculator
 			
-				Calculator cal = new Calculator(); 
-				Scanner scann = new Scanner(System.in);
-				System.out.println("Select what to do \na)Addition \nb)Substraction \nc)Multiplication \nd)Division");
-				String method = scann.nextLine();
-				System.out.println("You Selected: "+method);
+				Calculator cal = new Calculator(); //object to call methods from Calculator class
+				
+				Scanner scann = new Scanner(System.in);//Scanner object to read method from the user
+				
+				
+				System.out.println("\nSelect what to do \na)Addition \nb)Substraction \nc)Multiplication \nd)Division");
+				String method = scann.nextLine(); //method taken from user's input
+				System.out.println("\nYou Selected: "+method);
 				
 				switch(method){
 			
-					case "a":
-						System.out.println("Sum is: "+cal.addition());
+					case "a": //Addition
+						System.out.println("\nSum is: "+cal.addition());
 						break;
 				
-					case "b":
-						System.out.println("Difference is: "+cal.substraction());
+					case "b": //Substraction
+						System.out.println("\nDifference is: "+cal.substraction());
 						break;
 				
-					case "c":
-						System.out.println("Multiplication is: "+cal.multiplication());
+					case "c": //Multiplication
+						System.out.println("\nMultiplication is: "+cal.multiplication());
 						break;
 				
-					case "d":
-						System.out.println("Division is: "+cal.division());
+					case "d": //Division
+						System.out.println("\nDivision is: "+cal.division());
 						break;
 				
-					default:
-						System.out.println("Invalid Input"); 
+					default: 
+						System.out.println("\nInvalid Input"); 
 						break;
 				}
 				break;
 			
-			case 2:
-				Fibonnaci fib = new Fibonnaci();
-				fib.fibonnaci();
+			case 2: //fibonnaci
+				Fibonnaci fib = new Fibonnaci();  //object to call methods from Fibonnaci class
+				fib.fibonnaci(); //calling the method fibonnaci() 
 				break;
 				
 			default:
-				System.out.println("Please Enter a Valid Option");
+				System.out.println("\nPlease Enter a Valid Option");
         }
     }
 }

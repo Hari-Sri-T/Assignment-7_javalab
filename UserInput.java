@@ -1,7 +1,8 @@
 //UserInput.java
 //input for Calculator
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.Arrays;
 
 class UserInput{ 
 	int[] userInput(){ //method for taking User input	

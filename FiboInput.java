@@ -1,6 +1,7 @@
 //FiboInput.java
+//input for Fibonnaci
 
-import java.util.*;
+import java.util.Scanner;
 
 class FiboInput{ 
 	int fiboInput(){ //method for taking fibonnaci no of terms input	
@@ -11,7 +12,7 @@ class FiboInput{
 		System.out.println("Enter the number of terms: "); //taking input from user
 		terms = scan.nextInt();
 		
-        return terms; // returns the values taken
+        return terms; // returns the value from user
 		
 	}	
 }
