@@ -8,37 +8,52 @@ class Main{
 	public static void main(String args[]){
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("Select what to do \na)Addition \nb)Substraction \nc)Multiplication \nd)Division");
-		String method = scan.nextLine();
-		System.out.println("You Selected: "+method);
 		
-		Calculator cal = new Calculator(); 
-		Fibonnaci fib = new Fibonnaci();
+		System.out.println("Select what to do \n1)Calculator \n2)Fibonnaci");
+		int option = scan.nextInt();
 		
-		switch(method){
+		switch(option){
+		
+			case 1:
 			
-			case "a":
-				System.out.println("Sum is: "+cal.addition());
-				break;
+				Calculator cal = new Calculator(); 
+				Scanner scann = new Scanner(System.in);
+				System.out.println("Select what to do \na)Addition \nb)Substraction \nc)Multiplication \nd)Division");
+				String method = scann.nextLine();
+				System.out.println("You Selected: "+method);
 				
-			case "b":
-				System.out.println("Difference is: "+cal.substraction());
-				break;
+				switch(method){
+			
+					case "a":
+						System.out.println("Sum is: "+cal.addition());
+						break;
 				
-			case "c":
-				System.out.println("Multiplication is: "+cal.multiplication());
-				break;
+					case "b":
+						System.out.println("Difference is: "+cal.substraction());
+						break;
 				
-			case "d":
-				System.out.println("Division is: "+cal.division());
+					case "c":
+						System.out.println("Multiplication is: "+cal.multiplication());
+						break;
+				
+					case "d":
+						System.out.println("Division is: "+cal.division());
+						break;
+				
+					default:
+						System.out.println("Invalid Input"); 
+						break;
+				}
+				break;
+			
+			case 2:
+				Fibonnaci fib = new Fibonnaci();
+				fib.fibonnaci();
 				break;
 				
 			default:
-				System.out.println("Invalid Input"); 
-				break;
-	    }
-		
-		fib.fibonnaci();
+				System.out.println("Please Enter a Valid Option");
+        }
     }
 }
 	
