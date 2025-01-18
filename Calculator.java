@@ -30,13 +30,21 @@ class Calculator{
 		return mul; //Returns the multiplication of 2 numbers
 	}
 	
-	int division(){ //method for division
+	double division(){ //method for division
 		int[] numbers;
 		UserInput input = new UserInput(); //calls UserInput method
 		numbers = input.userInput();
-		int div = numbers[0] / numbers[1];
 		
-		return div; //Returns the division of 2 numbers
+		if(numbers[1] == 0 ){
+			System.out.println("Division by 0 not allowed!!");
+			
+		}
+		else{
+			double div = (double)numbers[0] / numbers[1];
+			return div;
+		}
+		
+		return 0; //Returns the division of 2 numbers
 	}
 	
 	

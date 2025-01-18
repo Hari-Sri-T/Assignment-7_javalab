@@ -12,7 +12,7 @@ class Main{
 		String method = scan.nextLine();
 		System.out.println("You Selected: "+method);
 		
-		Calculator cal = new Calculator();
+		Calculator cal = new Calculator(); 
 		
 		switch(method){
 			
@@ -33,7 +33,7 @@ class Main{
 				break;
 				
 			default:
-				System.out.println("Invalid Input");
+				System.out.println("Invalid Input"); 
 				break;
 	    }
     }
