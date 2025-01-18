@@ -10,55 +10,65 @@ class Main{
 		Scanner scan = new Scanner(System.in); //Scanner object to read option from the user
 		
 		
-		System.out.println("\nSelect what to do \n1)Calculator \n2)Fibonnaci");
-		int option = scan.nextInt(); //taking user input , either 1 or 2 is expected
 		
-		//based on option chosen either Calculator or Fibonnaci is run using switch
-		switch(option){ 
+		while(true){ //infinite loop, runs until 3 is selected
+			
+			System.out.println("\nSelect what to do \n1)Calculator \n2)Fibonnaci \n3)exit\n");
+			int option = scan.nextInt(); //taking user input , 1,2 or 3 is expected
+			
+			switch(option){ 
 		
-			case 1: //Calculator
+				case 1: //Calculator
 			
-				Calculator cal = new Calculator(); //object to call methods from Calculator class
+					Calculator cal = new Calculator(); //object to call methods from Calculator class
 				
-				Scanner scann = new Scanner(System.in);//Scanner object to read method from the user
+					Scanner scann = new Scanner(System.in);//Scanner object to read method from the user
 				
 				
-				System.out.println("\nSelect what to do \na)Addition \nb)Substraction \nc)Multiplication \nd)Division");
-				String method = scann.nextLine(); //method taken from user's input
-				System.out.println("\nYou Selected: "+method);
+					System.out.println("\nSelect what to do \na)Addition \nb)Substraction \nc)Multiplication \nd)Division \ne)Go Back\n");
+					String method = scann.nextLine(); //method taken from user's input
 				
-				switch(method){
+					switch(method){
 			
-					case "a": //Addition
-						System.out.println("\nSum is: "+cal.addition());
-						break;
+						case "a": //Addition
+							System.out.println("\nSum is: "+cal.addition());
+							break;
 				
-					case "b": //Substraction
-						System.out.println("\nDifference is: "+cal.substraction());
-						break;
+						case "b": //Substraction
+							System.out.println("\nDifference is: "+cal.substraction());
+							break;
 				
-					case "c": //Multiplication
-						System.out.println("\nMultiplication is: "+cal.multiplication());
-						break;
+						case "c": //Multiplication
+							System.out.println("\nMultiplication is: "+cal.multiplication());
+							break;
 				
-					case "d": //Division
-						System.out.println("\nDivision is: "+cal.division());
-						break;
+						case "d": //Division
+							System.out.println("\nDivision is: "+cal.division());
+							break;
+							
+						case "e": //Does nothing
+							break;
 				
-					default: 
-						System.out.println("\nInvalid Input"); 
-						break;
+						default: 
+							System.out.println("\nInvalid Input"); 
+							break;
+					}
+					break;
+			
+				case 2: //fibonnaci
+					Fibonnaci fib = new Fibonnaci();  //object to call methods from Fibonnaci class
+					fib.fibonnaci(); //calling the method fibonnaci() 
+					break;
+				
+				case 3:
+					System.out.println("Exiting the code!"); //to end the code
+					return;
+			
+				default:
+					System.out.println("\nPlease Enter a Valid Option");
+					break;
 				}
-				break;
-			
-			case 2: //fibonnaci
-				Fibonnaci fib = new Fibonnaci();  //object to call methods from Fibonnaci class
-				fib.fibonnaci(); //calling the method fibonnaci() 
-				break;
-				
-			default:
-				System.out.println("\nPlease Enter a Valid Option");
-        }
-    }
+		}
+	}
 }
 	
