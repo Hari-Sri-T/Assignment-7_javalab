@@ -13,6 +13,7 @@ class Main{
 		System.out.println("You Selected: "+method);
 		
 		Calculator cal = new Calculator(); 
+		Fibonnaci fib = new Fibonnaci();
 		
 		switch(method){
 			
@@ -36,6 +37,8 @@ class Main{
 				System.out.println("Invalid Input"); 
 				break;
 	    }
+		
+		fib.fibonnaci();
     }
 }
 	
