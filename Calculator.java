@@ -38,7 +38,6 @@ class Calculator {
         }
     }
 
-    // Method for division operation
     double division() {
         try {
             int[] numbers = new UserInput().calcInput(); // Call the method for input
@@ -52,6 +51,10 @@ class Calculator {
             // Handle invalid input for division
             System.out.println("Division failed: Invalid number format.");
             return 0; // Return 0 in case of invalid input
+        } catch (ArithmeticException e) {
+            // Handle division by zero exception
+            System.out.println("Arithmetic Error: Division by zero is not allowed.");
+            return 0; // Return 0 in case of division by zero
         }
     }
 
