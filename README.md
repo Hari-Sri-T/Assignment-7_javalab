@@ -1,4 +1,4 @@
-# Calculator Application
+# Calculator Application (With Exception Handling)
 
 This project is a simple Java-based calculator application that allows the user to perform basic arithmetic operations (addition, subtraction, multiplication, division), generate a Fibonacci sequence, and calculate the sum and average of an array.
 
@@ -74,6 +74,39 @@ This is the entry point of the application where the user can select various ope
     - 2) **Fibonacci**: Generate a Fibonacci sequence.  
     - 3) **Array (Sum and Average)**: Calculate the sum and average of an array of integers.  
     - 4) **Exit**: Exit the program.
+
+---
+
+## Exception Handling
+
+This application includes exception handling to ensure the program can gracefully handle invalid inputs and runtime errors.
+
+### Handled Exceptions:
+
+1. **IllegalArgumentException**  
+   - **Location**:  
+     - In `UserInput.fiboInput()`  
+     - Thrown when the number of terms for the Fibonacci sequence is 0 or negative.  
+   - **Behavior**: Displays an error message if the input is not greater than 0.
+
+2. **NegativeArraySizeException**  
+   - **Location**:  
+     - In `UserInput.arrInput()`  
+     - Thrown when a negative size is provided for the array.  
+   - **Handled in**:  
+     - `Calculator.sumAverageArr()` using a try-catch block to prevent the program from terminating abruptly.
+
+3. **ArithmeticException**  
+   - **Location**:  
+     - In `Calculator.division()`  
+     - Thrown when the user tries to divide by zero.  
+   - **Behavior**: Displays a message indicating division by zero is not allowed, and returns 0 as a fallback.
+
+4. **InputMismatchException**  
+   - **Location**:  
+     - In all input methods in `UserInput.java`  
+     - Thrown when the user enters invalid data types (e.g., entering a string instead of an integer).  
+   - **Behavior**: Prompts the user repeatedly until valid input is received.
 
 ---
 ## How to Compile the Program
