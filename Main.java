@@ -48,8 +48,12 @@ class Main {
                         break;
 
                     case 2: // Fibonacci
-                        cal.fibonnaci(); // Calling the method for Fibonacci sequence
-                        break;
+					    try {
+							cal.fibonnaci(); // calling the method fibonnaci()
+						} catch (IllegalArgumentException e) {
+							System.out.println("Error: " + e.getMessage());
+						}
+						break;
 
                     case 3: // Array sum and average
 

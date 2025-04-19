@@ -24,15 +24,24 @@ class UserInput {
 		return numbers; //returns the values taken	
 	}
 
-	int fiboInput() { //method for taking fibonnaci no of terms input	
+
+	int fiboInput() { //method for taking Fibonacci number of terms input
 		Scanner scan = new Scanner(System.in); //Scanner object to read input from the user
+		int terms;
+	
 		try {
-			System.out.println("Enter the number of terms: ");    //taking input from user
-			return scan.nextInt();   // returns the value from user	
-		} catch (InputMismatchException e) { //Exception Handling using try-catch
-			throw new InputMismatchException("Invalid input for Fibonacci terms.");
+			System.out.println("Enter the number of terms: "); //taking input from user
+			terms = scan.nextInt();
+			if (terms <= 0) {
+				throw new IllegalArgumentException("Number of terms must be greater than 0.");
+			}
+		} catch (InputMismatchException e) {
+			throw new InputMismatchException("Invalid input! Please enter an integer.");
 		}
+	
+		return terms; // returns the value from user		
 	}
+	
 
 	int[] arrInput(int size) { //method for Array Input
 		Scanner scan = new Scanner(System.in); //declaring a scanner object	
