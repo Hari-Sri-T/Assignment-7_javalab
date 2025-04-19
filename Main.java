@@ -4,8 +4,7 @@
 // Batch: B3
 
 
-import java.util.Scanner;
-import java.util.InputMismatchException;
+import java.util.*;
 
 class Main {
     public static void main(String args[]) {
@@ -53,10 +52,16 @@ class Main {
                         break;
 
                     case 3: // Array sum and average
-                        System.out.println("Enter the number of elements of the array: ");
-                        int n = scan.nextInt(); // Taking size of array
-                        cal.sumAverageArr(n); // Calling the method to sum and average the array
-                        break;
+
+						try {
+							System.out.println("Enter the number of elements of the array: ");
+                            int n = scan.nextInt(); // Taking size of array
+                            cal.sumAverageArr(n); // Calling the method to sum and average the array
+						} catch (NegativeArraySizeException e) {
+							System.out.println("Error: " + e.getMessage()); // handle negative array size
+						}
+						break;
+                        
 
                     case 4: // Exit the program
                         System.out.println("Exiting the code!");

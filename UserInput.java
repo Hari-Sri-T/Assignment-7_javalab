@@ -1,8 +1,8 @@
 // UserInput.java
 // Handles input for Calculator
 
-import java.util.Scanner;
-import java.util.InputMismatchException;
+import java.util.*;
+
 
 class UserInput {
 
@@ -36,6 +36,12 @@ class UserInput {
 
 	int[] arrInput(int size) { //method for Array Input
 		Scanner scan = new Scanner(System.in); //declaring a scanner object	
+
+		// Inside arrInput method
+        if (size < 0) {
+            throw new NegativeArraySizeException("Array size cannot be negative.");
+        }
+
 		int[] array = new int[size];
 
 		try {
