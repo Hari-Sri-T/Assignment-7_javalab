@@ -1,82 +1,93 @@
-// Calculator.java
+import java.util.InputMismatchException;
 
-class Calculator{	
-	int addition(){ //method for addition
-		int[] numbers;
-		UserInput input = new UserInput(); //calls UserInput method
-		numbers = input.calcInput();
-		int sum = numbers[0] + numbers[1];
-		
-		return sum; //Returns the Sum of 2 numbers
-	}
-	
-	int substraction(){ //method for substraction
-		int[] numbers;
-	    UserInput input = new UserInput(); //calls UserInput method
-		numbers = input.calcInput();
-		int sub = numbers[0] - numbers[1];
-		
-		return sub; //Returns the substraction of 2 numbers
-	}
-	
-	int multiplication(){ //method for multiplication
-		int[] numbers;
-		UserInput input = new UserInput(); //calls UserInput method
-		numbers = input.calcInput();
-		int mul = numbers[0] * numbers[1];
-		
-		return mul; //Returns the multiplication of 2 numbers
-	}
-	
-	double division(){ //method for division
-		int[] numbers;
-		UserInput input = new UserInput(); //calls UserInput method
-		numbers = input.calcInput();		
-		if (numbers[1] == 0 ){
-			System.out.println("Division by 0 not allowed!!");		
-		}
-		else {
-			double div = (double)numbers[0] / numbers[1];
-			return div; //Returns the division of 2 numbers
-		}
-		
-		return 0; 
-	}
-	
-	void fibonnaci(){ //new method for fibonnaci code			
-		UserInput input = new UserInput(); //calls UserInput method
-		int terms; //to store no of terms
-		
-		terms = input.fiboInput(); //calling fiboInput() method from UserInput class
-		
-		// terms to store 1st and 2nd terms
-        int first = 0; 
-		int second = 1;
-			        
-        for (int i = 1; i <= terms; i++) { //for loop runs no.of.terms times
-            System.out.print(first + " ");
-            
-            // Update the values for the next Fibonacci term
-            int nextTerm = first + second;
-            first = second;
-            second = nextTerm;
-		}
-	}
-	
-	void sumAverageArr(int size){	
-		UserInput input = new UserInput(); //calls UserInput method
+class Calculator {
 
-		int[] arrays;
-		arrays = input.arrInput(size);
-		int total = 0 ;
-		
-		for (int i = 0; i < size; i++){ //checks total by adding all num in array
-			total += arrays[i];
-		}
-		double average;
-		average = (double) total/size; //typecasted into double to get decimal values
+    // Method for addition operation
+    int addition() {
+        try {
+            int[] numbers = new UserInput().calcInput(); // Call the method for input
+            return numbers[0] + numbers[1]; // Return the sum of the numbers
+        } catch (InputMismatchException e) {
+            // Handle invalid input for addition
+            System.out.println("Addition failed: Invalid number format.");
+            return 0; // Return 0 in case of invalid input
+        }
+    }
 
-		System.out.println("The Sum of Elements of Array's is: " + total);	
-		System.out.println("The Average of Elements in Array is: " + average );
-	}	
+    // Method for subtraction operation
+    int substraction() {
+        try {
+            int[] numbers = new UserInput().calcInput(); // Call the method for input
+            return numbers[0] - numbers[1]; // Return the difference of the numbers
+        } catch (InputMismatchException e) {
+            // Handle invalid input for subtraction
+            System.out.println("Subtraction failed: Invalid number format.");
+            return 0; // Return 0 in case of invalid input
+        }
+    }
+
+    // Method for multiplication operation
+    int multiplication() {
+        try {
+            int[] numbers = new UserInput().calcInput(); // Call the method for input
+            return numbers[0] * numbers[1]; // Return the product of the numbers
+        } catch (InputMismatchException e) {
+            // Handle invalid input for multiplication
+            System.out.println("Multiplication failed: Invalid number format.");
+            return 0; // Return 0 in case of invalid input
+        }
+    }
+
+    // Method for division operation
+    double division() {
+        try {
+            int[] numbers = new UserInput().calcInput(); // Call the method for input
+            if (numbers[1] == 0) {
+                // Handle division by zero
+                System.out.println("Division by 0 not allowed!");
+                return 0; // Return 0 if division by 0
+            }
+            return (double) numbers[0] / numbers[1]; // Return the result of division
+        } catch (InputMismatchException e) {
+            // Handle invalid input for division
+            System.out.println("Division failed: Invalid number format.");
+            return 0; // Return 0 in case of invalid input
+        }
+    }
+
+    // Method to calculate Fibonacci series
+    void fibonnaci() {
+        try {
+            int terms = new UserInput().fiboInput(); // Get the number of terms for Fibonacci
+            int first = 0, second = 1;
+
+            for (int i = 1; i <= terms; i++) {
+                System.out.print(first + " "); // Print the current Fibonacci number
+                int nextTerm = first + second;
+                first = second;
+                second = nextTerm;
+            }
+            System.out.println(); // Print a new line after printing Fibonacci series
+        } catch (InputMismatchException e) {
+            // Handle invalid input for Fibonacci terms
+            System.out.println("Fibonacci failed: Invalid number format.");
+        }
+    }
+
+    // Method to calculate the sum and average of an array
+    void sumAverageArr(int size) {
+        try {
+            int[] array = new UserInput().arrInput(size); // Get the array input from the user
+            int total = 0;
+            for (int i = 0; i < size; i++) {
+                total += array[i]; // Sum up all elements of the array
+            }
+            double average = (double) total / size; // Calculate the average
+            System.out.println("The Sum of Elements of Array's is: " + total);
+            System.out.println("The Average of Elements in Array is: " + average);
+        } catch (InputMismatchException e) {
+            // Handle invalid input for array elements
+            System.out.println("Array input failed: Invalid number format.");
+        }
+    }
 }
